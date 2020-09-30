@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Burger Human</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Lato"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet" type="text/css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/menudetail.css">
+<script type="text/javascript" src="js/menu.json"></script>
+<script type="text/javascript">
+  	var Fwidth=1920;
+	//when screen resized, change div size 
+        function div2Resize() {
+            var left = document.getElementById('leftMenu');
+            var right = document.getElementById('rightMenu');
+            if(window.innerWidth>767){
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px ';
+            	right.style.margin = 0 + 'px ' + ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px '+ 0 +'px '+ 0 +'px ';
+            }
+            else{
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            	right.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            }
+        }
+		//set menu by json file
+        function setMenu(i){
+			var menu="<div class='burger col-md-3'>";	
+			menu+="<img src='"+menuJSON.beverages[i].src+"' width='150' height='150' alt='beverageImage' /><br/>"; //First image
+			menu+="<h5>"+menuJSON.beverages[i].name+"</h5>"; //First title
+			menu+="<div class='details beverages'>";
+			menu+="<img src='"+menuJSON.beverages[i].src+"' width='150' height='150' alt='beverageImage' />"; //Second image
+			menu+="<div class='letter'><h1>"+menuJSON.beverages[i].name+"</h1><br/><br/>"; <!-- Second Title -->
+			menu+=menuJSON.beverages[i].price+"$<br/><button onclick='addCart("+i+")' class='button'>Add to Cart</button></div></div></div>";
+			document.write(menu);
+		}
+		//add card 
+		function addCart(i){
+			sessionStorage.setItem("orderbeverage"+i,i);
+			location.href="delivery.html";
+		}
+		$( document ).ready(function() {
+    		div2Resize();
+            window.addEventListener('resize', div2Resize);
+    	});
+		
+    </script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar"
+	data-offset="50">
+	<!--nav-->
+	<nav class="navbar navbar-default navbar-fixed-top ">
+		<a href="main.html"><img src="image/burger_logo.png" id="logo"
+			width="150px" height="150px"></a>
+		<div id="topNavbar">
+			<ul>
+				<script>
+			function logOut(){
+				sessionStorage.removeItem("user");
+				}
+				var user=sessionStorage.getItem("user");
+				if(user==null){
+					document.write("<li><a href='SignIn.html'>Sign In</a></li>");
+				}
+				else{
+					document.write("<li onclick='logOut()'><a href='Menu_Beverages.html'>LogOut</a></li>");
+				}
+			</script>
+				<li><p>|</p></li>
+				<li><a href="main.html">Sign Up</a></li>
+				<li><p>|</p></li>
+				<li><a href="Customer_Opinion.html" style="margin-right: 35px;">Customer
+						Opinion</a></li>
+			</ul>
+		</div>
+		<div class="container-fluid ">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse " id="myNavbar">
+				<ul class="nav navbar-nav navbar-left" id="leftMenu">
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="menu.html"
+						style="margin-right: 100px;">MENU <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-menu-content" href="Menu_Burger.html">BURGER</a></li>
+							<li><a class="dropdown-menu-content"
+								href="Menu_Beverages.html">BEVERAGES</a></li>
+							<li><a class="dropdown-menu-content" href="Menu_Sides.html">SIDES</a></li>
+							<li><a class="dropdown-menu-content" href="Menu_Custom.html">CUSTOM</a></li>
+						</ul></li>
+					<li><a href="locator.html">LOCATOR</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" id="rightMenu">
+					<li><a href="event.html"
+						style="padding-left: -100px; margin-right: 100px;">EVENT</a></li>
+					<li><a href="delivery.html">DELIVERY</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="root" class="container-fluid text-center">
+			<div class="text-left">
+				<p>Home > MENU > BEVERAGE</p>
+			</div>
+		</div>
+	</nav>
+
+	<div id="space" class="container-fluid text-center"></div>
+	<!--menu title-->
+	<div class="container container-fluid" id="menu_title">
+		<h1>MENU</h1>
+		<div class="text-right">
+			<ul id="subMenu">
+				<li class=""><a href="Menu_Burger.html">BURGER</a></li>
+				<li class="">
+					<p>BEVERAGES</p>
+				</li>
+				<li class=""><a href="Menu_Sides.html">SIDES</a></li>
+				<li class=""><a href="Menu_Custom.html">CUSTOM</a></li>
+			</ul>
+		</div>
+		<hr>
+	</div>
+
+	<!--set menulist -->
+	<div class="container container-fluid text-center">
+		<script>
+		var len=Object.keys(menuJSON.beverages).length;
+		for(var i=0;i<len;i++){
+			setMenu(i);
+		}
+	</script>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="text-center">
+			<a class="up-arrow" href="#myPage" data-toggle="tooltip"
+				title="TO TOP"> <span class="glyphicon glyphicon-chevron-up"></span>
+			</a>
+		</div>
+		<div id="footerContent" class="container-fluid">
+			<div class="text-left" style="display: inline; position: absolute;">
+				<img src="image/footerLogo.png" class="img_locator">
+			</div>
+			<div class="text-right">
+				<h2>BURGER HUMAN</h2>
+				<p>software major at Chungbuk National University - Jeon
+					Joon-ho, Park Sang-hyuk and Ryu Han-min,</p>
+				<br>
+				<p>(28644) Seowongu, Cheongju-si, Chungbuk, Korea limnotic zone
+					1, Chungbuk National University TEL 010-2537-7605(Park Sang-hyuk)</p>
+				<br> <a href="http://www.chungbuk.ac.kr/" data-toggle="tooltip"
+					title="Visit CBNU">http://www.chungbuk.ac.kr/</a>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>

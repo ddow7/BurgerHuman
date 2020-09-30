@@ -1,0 +1,116 @@
+﻿#menu_button {
+  margin: 5px;
+  padding: 3px 0px;
+  box-sizing: border-box;
+  height: 36px;
+  width: 36px;
+  display: block;
+}
+#menu_button div {
+  width: 30px;
+  height: 2px;
+  margin: 6px auto;
+  background: #cd6133;
+  border-radius: 5px;
+  transition: .5s;
+}
+#menu_button div:nth-child(1) {
+  margin-top: 5px;
+}
+#menu_button div:nth-child(2) {
+  background: red;
+}
+#menu_button.close div:nth-child(1) {
+  transform: translate(0, 8px) rotate(-45deg);
+}
+#menu_button.close div:nth-child(2) {
+  opacity: 0;
+}
+#menu_button.close div:nth-child(3) {
+  transform: translate(0, -8px) rotate(45deg);
+}
+#burger {
+  float: right;
+  width: 280px;
+  min-height: 10px;
+  padding: 30px 0px;
+}
+#burger div {
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  position:absolute;
+}
+#burger div>img {
+  width: 100%;
+  height: 60px;
+  left: 0px;
+  position:absolute;
+}
+#burger .topbun {
+  height: 90px;
+}
+#burger .topbun>img {
+  height: 90px;
+}
+#burger .lettuce {
+  height: 30px;
+}
+#burger .lettuce>img {
+  height: 30px;
+}
+#burger .tomato {
+  height: 30px;
+}
+#burger .tomato>img {
+  height: 30px;
+}
+#burger .onion {
+  height: 30px;
+}
+#burger .onion>img {
+  height: 30px;
+}
+#burger .mushroom {
+  height: 30px;
+}
+#burger .mushroom>img {
+  height: 30px;
+}
+#burger .cheese {
+  height: 30px;
+}
+#burger .cheese>img {
+  height: 30px;
+}
+#burger .hotSauce {
+  height: 30px;
+}
+#burger .hotSauce>img {
+  height: 30px;
+}
+#burger .over {
+  opacity: 0.5;
+}
+
+#form {
+  float: left;
+}
+#form div {
+  padding: 5px;
+}
+#form div label {
+  width: 100px;
+  display: inline-block;
+}
+#form div input {
+  font-size: 20px;
+  width: 40px;
+}
+
+
+#burger {
+  position: relative;
+  margin: 5em auto;
+  width: $size;
+}

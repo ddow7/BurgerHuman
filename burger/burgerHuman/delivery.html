@@ -1,0 +1,331 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>BurgerHuman</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="css/menudetail.css">
+   <script type="text/javascript" src="js/menu.json"></script>
+  <script type="text/javascript">
+     var Fwidth=1920;
+        function div2Resize() {
+            var left = document.getElementById('leftMenu');
+            var right = document.getElementById('rightMenu');
+            if(window.innerWidth>767){
+               left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px ';
+               right.style.margin = 0 + 'px ' + ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px '+ 0 +'px '+ 0 +'px ';
+            }
+            else{
+               left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+               right.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            }
+        }
+		function sumPrice(){
+			var sum=0;
+			for(var i=0;i<cnt;i++){
+				var pr=parseInt($("#pr"+i).html());
+				var num=parseInt($("#ONum"+i).html());
+				if(isNaN(pr)||isNaN(num))
+					continue;
+				sum+=pr*num;
+			}
+			$("#sumPrice").html(sum+"$");
+		}
+		
+		$(function(){
+			$( ".minus" ).click(function(e) {
+				for(var i=0;i<cnt;i++){
+					if(e.target.id=="m"+i){
+						var num=$("#ONum"+i).html();
+						if(num<=0)
+							return;
+						$("#ONum"+i).html(num-1);
+						sumPrice();
+						break;
+					}
+				}
+			});
+			$( ".plus" ).click(function(e) {
+				for(var i=0;i<cnt;i++){
+					if(e.target.id=="p"+i){
+						var num=$("#ONum"+i).html();
+						$("#ONum"+i).html(parseInt(num)+1);
+						sumPrice();
+						break;
+					}
+				}
+			});
+			$( ".removeKey" ).click(function(e) {
+				var id=e.target.id.split("_");
+				if(id[0]=="orderburger")
+					$("#tbu"+id[1]).remove();
+				else if(id[0]=="orderbeverage")
+					$("#tbe"+id[1]).remove();
+				else if(id[0]=="orderside")
+					$("#ts"+id[1]).remove();
+				else if(id[0]=="orderCustom")
+					$("#tc"+id[1]).remove();
+				sessionStorage.removeItem(id[0]+id[1]);
+				sumPrice();
+			});
+
+		});
+	
+        var cnt=0;
+      function printOrder(){
+         var order="<p>";
+         for(var i=0;i<Object.keys(menuJSON.burgers).length;i++){
+            var menu=sessionStorage.getItem("orderburger"+i);
+            if(menu!=null){
+               order+="<table id='tbu"+i+"' class='orderTable'><tr><td rowspan='2'><img class='ordermenu' src='"
+			   order+=menuJSON.burgers[i].src+"'></td><td>"+menuJSON.burgers[i].name+"</td></tr><tr><td>"
+			   order+="<span id='pr"+cnt+"' >"+menuJSON.burgers[i].price+"</span>$</td></tr><tr><td><button class='minus' id='m"+cnt+"' type='button'>"
+			   order+="-</button><span id='ONum"+cnt+"'>1</span><button class='plus' id='p"+cnt+"' type='button'>+</button></td><td>"
+			   order+="<button class='removeKey' id='orderburger_"+i+"' type='button'>cancel</button></td></tr></table>";
+               ++cnt;
+			}
+         }
+        for(var i=0;i<Object.keys(menuJSON.beverages).length;i++){
+            var menu=sessionStorage.getItem("orderbeverage"+i);
+            if(menu!=null){
+               order+="<table id='tbe"+i+"' class='orderTable'><tr><td rowspan='2'><img class='ordermenu' src='"
+			   order+=menuJSON.beverages[i].src+"'></td><td>"+menuJSON.beverages[i].name+"</td></tr><tr><td>"
+			   order+="<span id='pr"+cnt+"' >"+menuJSON.beverages[i].price+"</span>$</td></tr><tr><td><button class='minus' id='m"+cnt+"' type='button'>"
+			   order+="-</button><span id='ONum"+cnt+"'>1</span><button class='plus' id='p"+cnt+"' type='button'>+</button></td><td>"
+			   order+="<button class='removeKey' id='orderbeverage_"+i+"' type='button'>cancel</button></td></tr></table>";
+				++cnt;
+			}
+         }
+        for(var i=0;i<Object.keys(menuJSON.sides).length;i++){
+         var menu=sessionStorage.getItem("orderside"+i);
+            if(menu!=null){
+			   order+="<table id='ts"+i+"' class='orderTable'><tr><td rowspan='2'><img class='ordermenu' src='"
+			   order+=menuJSON.sides[i].src+"'></td><td>"+menuJSON.sides[i].name+"</td></tr><tr><td>"
+			   order+="<span id='pr"+cnt+"' >"+menuJSON.sides[i].price+"</span>$</td></tr><tr><td><button class='minus' id='m"+cnt+"' type='button'>"
+			   order+="-</button><span id='ONum"+cnt+"'>1</span><button class='plus' id='p"+cnt+"' type='button'>+</button></td><td>"
+			   order+="<button class='removeKey' id='orderside_"+i+"' type='button'>cancel</button></td></tr></table>";
+				++cnt;
+			}
+         }
+		 var maxnum=parseInt(sessionStorage.getItem("customMaxnum"));
+		 for(var i=maxnum;i>=0;i--){
+         var menu=JSON.parse(sessionStorage.getItem("orderCustom"+i));
+            if(menu!=null){
+			   order+="<table id='tc"+i+"' class='orderTable'><tr><td rowspan='2'><img class='ordermenu' src='"
+			   order+="image/burger/customBurger.png'></td><td>"+menu[0]+"</td></tr><tr><td>"
+			   order+="<span id='pr"+cnt+"' >"+menu[1]+"</span>$</td></tr><tr><td><button class='minus' id='m"+cnt+"' type='button'>"
+			   order+="-</button><span id='ONum"+cnt+"'>1</span><button class='plus' id='p"+cnt+"' type='button'>+</button></td><td>"
+			   order+="<button class='removeKey' id='orderCustom_"+i+"' type='button'>cancel</button></td></tr></table>";
+				++cnt;
+			}
+         }
+         order+="</P>";
+         document.write(order);
+			sumPrice();
+      }
+        $(document).ready(function(){
+            div2Resize();
+            window.addEventListener('resize', div2Resize);
+				sumPrice();
+        });
+   
+      
+      var countDown = new Date();
+         countDown.setMinutes(countDown.getMinutes()+1);
+       function setTimer(){
+         var countDown = new Date();
+         countDown.setMinutes(countDown.getMinutes()+1);
+		 var now = new Date();
+         var logincheck=   sessionStorage.getItem("isLogin");
+         if(logincheck){
+            
+            sessionStorage.setItem("getTimer_c",countDown);
+			sessionStorage.setItem("getTimer_f",now);
+            window.location="main.html";
+         }
+         else{
+            alert("need login");
+         }
+      }
+	  function logOut(){
+		sessionStorage.removeItem("user");
+	  }
+    </script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-default navbar-fixed-top " >
+<a href="main.html"><img src="image/burger_logo.png" id="logo" width="150px" height="150px"></a>
+   <div id="topNavbar">
+      <ul>	
+			<script>
+				var user=sessionStorage.getItem("user");
+				if(user==null){
+					document.write("<li><a href='SignIn.html'>Sign In</a></li>");
+				}
+				else{
+					document.write("<li onclick='logOut()'><a href='delivery.html'>LogOut</a></li>");
+				}
+			</script>
+           <li><p> | </p></li>
+           <li><a href="main.html">Sign Up</a></li>
+           <li><p> | </p></li>
+           <li><a href="Customer_Opinion.html" style="margin-right:35px;">Customer Opinion</a></li>
+        </ul>
+   </div>
+  <div class="container-fluid ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                     
+      </button>
+    </div>
+    <div class="collapse navbar-collapse " id="myNavbar">
+      <ul class="nav navbar-nav navbar-left" id="leftMenu">
+      <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="menu.html" style="margin-right:100px;">MENU
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-menu-content" href="Menu_Burger.html">BURGER</a></li>
+            <li><a class="dropdown-menu-content" href="Menu_Beverages.html">BEVERAGES</a></li>
+         <li><a class="dropdown-menu-content" href="Menu_Sides.html">SIDES</a></li>
+         <li><a class="dropdown-menu-content" href="Menu_Custom.html">CUSTOM</a></li>
+          </ul>
+        </li>
+        <li><a href="locator.html">LOCATOR</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="rightMenu">
+        <li><a href="event.html" style="padding-left:-100px; margin-right:100px;">EVENT</a></li>
+      <li><a href="delivery.html">DELIVERY</a></li>
+      </ul>
+      </div>
+  </div>
+  <div id="root" class="container-fluid text-center">
+  <div class="text-left">
+     <p>Home > MENU > DELIVERY</p>
+  </div>
+  </div>
+</nav>
+<div id="space" class="container-fluid text-center"></div>
+<div id="contact" class="container container-fluid text-center">
+  <h3 class="text-center"></h3>
+  <p class="text-center" style="font-family:Righteous">Delivery Order!</p>
+  <div class="row">
+   <div class="col-md-4">
+      <h2 style="font-family:Righteous">Your Order</h2>
+     <script>
+      printOrder();
+     </script>
+   </div>
+   <div class="col-md-8" style="font-family:Righteous">
+      <h2>How to pay</h2>
+	  
+		<h2 id="sumPrice">$</h2>
+	  
+      <select id="payment"name="payment"onchange="chageSelect()">
+         <option value="none" selected>Choice</option>
+         <option value="Credit">Credit Card</option>
+         <option value="Cash">Cash</option>
+      </select>
+      <div id="cardinput">
+         <h3 >Select Card </h3>
+         <select id="selectcard"name="selectcard">
+         <option value="none" selected>Choice</option>
+         <option value="shinhan">Hana Bank</option>
+         <option value="kookmin">Kookmin Bank</option>
+         <option value="shinhan">Shinhan Bank</option>
+         <option value="kookmin">Woori Bank</option>
+         <option value="shinhan">Nonghyup Bank</option>
+      </select>
+         <h3>Card Number</h3>
+         <input class="form-control" id="cardnum" name="cardnum" type="text" required>
+         <h3>Passward</h3>
+         <input class="form-control" id="cardpw" name="cardpw" type="password" required>
+      </div>
+      <script>
+      function chageSelect(){
+      var selected = $("#payment option:selected").val();
+      if(selected=="Credit"){
+         document.getElementById("cardinput").style.visibility ="visible";
+            
+      }
+      else{
+         document.getElementById("cardinput").style.visibility ="hidden";
+      }
+         
+      
+      }
+      
+      </script>
+      
+      <br>
+      <button class="btn pull-right" type="submit" onclick="setTimer()">Send</button>
+  
+   </div>
+   
+  
+  
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+   <div class="text-center">
+        <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+       <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+     </div>
+     <div id="footerContent" class="container-fluid">
+     <div class="text-left" style="display:inline; position:absolute;">
+        <img src="image/footerLogo.png" class="img_locator">
+     </div>
+     <div class="text-right">
+        <h2>BURGER HUMAN</h2>
+        <p>software major at Chungbuk National University - Jeon Joon-ho, Park Sang-hyuk and Ryu Han-min, </p><br>
+        <p>(28644) Seowongu, Cheongju-si, Chungbuk, Korea limnotic zone 1, Chungbuk National University TEL 010-2537-7605(Park Sang-hyuk)</p><br>
+        <a href="http://www.chungbuk.ac.kr/" data-toggle="tooltip" title="Visit CBNU">http://www.chungbuk.ac.kr/</a>
+     </div>
+   </div>
+</div>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>

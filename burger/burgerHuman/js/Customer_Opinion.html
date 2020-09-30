@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Burger Human</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/menudetail.css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato"
+	rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet" type="text/css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!--when screen resized, change div size -->
+<script type="text/javascript">
+  	var Fwidth=1920;
+        function div2Resize() {
+            var left = document.getElementById('leftMenu');
+            var right = document.getElementById('rightMenu');
+            if(window.innerWidth>767){
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px ';
+            	right.style.margin = 0 + 'px ' + ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px '+ 0 +'px '+ 0 +'px ';
+            }
+            else{
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            	right.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            }
+        }
+        $( document ).ready(function() {
+          div2Resize();
+            window.addEventListener('resize', div2Resize);
+       });
+    </script>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar"
+	data-offset="50">
+	<!--nav-->
+	<nav class="navbar navbar-default navbar-fixed-top ">
+		<a href="main.html"><img src="image/burger_logo.png" id="logo"
+			width="150px" height="150px"></a>
+		<div id="topNavbar">
+			<ul>
+				<li><a href="SignIn.html">Sign In</a></li>
+				<li><p>|</p></li>
+				<li><a href="SignUp.html">Sign Up</a></li>
+				<li><p>|</p></li>
+				<li><a href="Customer_Opinion.html" style="margin-right: 35px;">Customer
+						Opinion</a></li>
+			</ul>
+		</div>
+		<div class="container-fluid ">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse " id="myNavbar">
+				<ul class="nav navbar-nav navbar-left" id="leftMenu">
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="menu.html"
+						style="margin-right: 100px;">MENU <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-menu-content" href="Menu_Burger.html">BURGER</a></li>
+							<li><a class="dropdown-menu-content"
+								href="Menu_Beverages.html">BEVERAGES</a></li>
+							<li><a class="dropdown-menu-content" href="Menu_Sides.html">SIDES</a></li>
+							<li><a class="dropdown-menu-content" href="Menu_Custom.html">CUSTOM</a></li>
+						</ul></li>
+					<li><a href="locator.html">LOCATOR</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right" id="rightMenu">
+					<li><a href="event.html"
+						style="padding-left: -100px; margin-right: 100px;">EVENT</a></li>
+					<li><a href="delivery.html">DELIVERY</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="root" class="container-fluid text-center">
+			<div class="text-left">
+				<p>Customer Opinion</p>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div id="space" class="container-fluid text-center"></div>
+		<!--menu title-->
+		<div class="container-fluid" id="menu_title">
+			<h1>Customer Opinion</h1>
+			<hr>
+		</div>
+	</div>
+
+	<!--container opinion form-->
+	<div class="container text-center">
+		<div class="container container-fluid  " id="opinion_container">
+			<form name="opinion_form" method="post">
+				<table class="writeTable">
+					<tr>
+						<th>Name</th>
+						<td><input type="text" class="inputfield1" value=""
+							name="name" /></td>
+					</tr>
+					<tr>
+						<th>Phone Number</th>
+						<td><input class="inputfield1" type="tel" name="phonenumber"
+							pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required></td>
+					</tr>
+					<tr>
+						<th>E-Mail</th>
+						<td><input type="text" class="inputfield2" value=""
+							name="email" /></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input type="password1" class="inputfield" value=""
+							name="password" /></td>
+					</tr>
+					<tr>
+						<th>Title</th>
+						<td><input type="text" class="inputfield2" value=""
+							name="title" /></td>
+					</tr>
+					<tr>
+						<th>Content</th>
+						<td><textarea class="inputfield_area" cols="" rows=""
+								name="content"></textarea></td>
+					</tr>
+
+				</table>
+				<br />
+				<td><input class="opinion-submit" type="reset" value="submit"
+					onclick="enrollmentOpinion()"></td>
+
+			</form>
+			<br />
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<!-- button link to top -->
+		<div class="text-center">
+			<a class="up-arrow" href="#myPage" data-toggle="tooltip"
+				title="TO TOP"> <span class="glyphicon glyphicon-chevron-up"></span>
+			</a>
+		</div>
+		<div id="footerContent" class="container-fluid">
+			<div class="text-left" style="display: inline; position: absolute;">
+				<img src="image/footerLogo.png" class="img_locator">
+			</div>
+			<div class="text-right">
+				<h2>BURGER HUMAN</h2>
+				<p>software major at Chungbuk National University - Jeon
+					Joon-ho, Park Sang-hyuk and Ryu Han-min,</p>
+				<br>
+				<p>(28644) Seowongu, Cheongju-si, Chungbuk, Korea limnotic zone
+					1, Chungbuk National University TEL 010-2537-7605(Park Sang-hyuk)</p>
+				<br> <a href="http://www.chungbuk.ac.kr/" data-toggle="tooltip"
+					title="Visit CBNU">http://www.chungbuk.ac.kr/</a>
+			</div>
+		</div>
+		</div>
+	</footer>
+
+	<script>
+$(document).ready(function(){
+  // initialize tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+
+
+function enrollmentOpinion() {
+		var form = document.opinion_form;
+		//write check name
+		if (!form.name.value) {
+			alert("write your name.");
+			form.name.focus();
+			return false;
+		}
+		//write check phone number
+		if (!form.phonenumber.value) {
+			alert("write your phone number");
+			form.phonenumber.focus();
+			return false;
+		}
+		//write check email
+		if (!form.email.value) {
+			alert("write your email");
+			form.email.focus();
+			return false;
+		}
+		//write check password
+		if (!form.password.value) {
+			alert("write your password.");
+			form.password.focus();
+			return false;
+		}
+		//write check opinion title
+		if (!form.title.value) {
+			alert("write your title");
+			form.title.focus();
+			return false;
+		}
+		//write check opinion content
+			if (!form.content.value) {
+			alert("write your content");
+			form.content.focus();
+			return false;
+		}
+		//success 
+		alert("Send your opinion.");
+		var user={
+			name : form.name.value,
+			password : form.password.value,
+			phone : form.phone.value,
+			address : form.address.value,
+			detail : form.detail.value,
+			email : form.email.value
+		}
+		localStorage.setItem(document.userInfo.id.value,JSON.stringify(user));
+		return true;
+		
+	}
+
+
+</script>
+
+</body>
+</html>

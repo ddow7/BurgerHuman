@@ -1,0 +1,44 @@
+menuJSON={
+   "burgers" :[
+      { "name": "Bulgogi Burger" , "src" : "image/burger/bulgogib.png" , "price" : "3",
+        "calorie" : "376", "fat" : "26g", "fatper" : "41%", "carbs" : "14g", "carbsper" : "26%",
+        "protein" : "30g", "proteinper" : "60%", "sodium" : "721mg", "sodiumper" : "36%"},
+      { "name": "Ridiculous Burger" , "src" : "image/burger/ridiculousb.png" , "price" : "7",
+        "calorie" : "550", "fat" : "29g", "fatper" : "45%", "carbs" : "46g", "carbsper" : "15%",
+        "protein" : "25g", "proteinper" : "50%", "sodium" : "970mg", "sodiumper" : "40%"},
+      { "name": "Surprise Burger" , "src" : "image/burger/supriseb.png" , "price" : "5.5",
+        "calorie" : "376", "fat" : "26g", "fatper" : "41%", "carbs" : "14g", "carbsper" : "15%",
+        "protein" : "20g", "proteinper" : "40%", "sodium" : "910mg", "sodiumper" : "42%"},
+      { "name": "Double Bulgogi Burger" , "src" : "image/burger/doublebulgokib.png" , "price" : "4",
+        "calorie" : "570", "fat" : "30g", "fatper" : "43%", "carbs" : "38g", "carbsper" : "12%",
+        "protein" : "35g", "proteinper" : "70%", "sodium" : "1200mg", "sodiumper" : "46%"},
+      { "name": "Hot Chicken Burger" , "src" : "image/burger/hotchickenb.png" , "price" : "4",
+        "calorie" : "540", "fat" : "21g", "fatper" : "37%", "carbs" : "30g", "carbsper" : "10%",
+        "protein" : "350g", "proteinper" : "90%", "sodium" : "850mg", "sodiumper" : "41%"},
+      { "name": "Hot Bulgogi Burger" , "src" : "image/burger/hotbulgogib.png" , "price" : "4",
+        "calorie" : "480", "fat" : "21g", "fatper" : "31%", "carbs" : "35g", "carbsper" : "11%",
+        "protein" : "32g", "proteinper" : "72%", "sodium" : "970mg", "sodiumper" : "30%"},
+      { "name": "Mushroom Burger" , "src" : "image/burger/mushroomb.png" , "price" : "4",
+        "calorie" : "400", "fat" : "20g", "fatper" : "20%", "carbs" : "30g", "carbsper" : "10%",
+        "protein" : "20g", "proteinper" : "40%", "sodium" : "700mg", "sodiumper" : "20%"},
+      { "name": "Chicken Burger" , "src" : "image/burger/chickenb.png" , "price" : "3",
+        "calorie" : "470", "fat" : "21g", "fatper" : "31%", "carbs" : "29g", "carbsper" : "12%",
+        "protein" : "20g", "proteinper" : "40%", "sodium" : "900mg", "sodiumper" : "40%"},
+      { "name": "Cheese Burger" , "src" : "image/burger/cheeseb.png" , "price" : "2",
+        "calorie" : "520", "fat" : "26g", "fatper" : "41%", "carbs" : "41g", "carbsper" : "14%",
+        "protein" : "30g", "proteinper" : "60%", "sodium" : "1100mg", "sodiumper" : "46%"},
+      { "name": "Morning Burger" , "src" : "image/burger/morningb.png" , "price" : "1",
+         "calorie" : "350", "fat" : "13g", "fatper" : "20%", "carbs" : "14g", "carbsper" : "15%",
+        "protein" : "20g", "proteinper" : "40%", "sodium" : "800mg", "sodiumper" : "35%"}
+   ],
+   "beverages" :[
+      { "name": "Cola" , "src" : "image/beverage/cola.png" , "price" : "1"},
+      { "name": "Cider" , "src" : "image/beverage/cider.png" , "price" : "1"},
+      { "name": "Ice Coffee" , "src" : "image/beverage/coffee.png" , "price" : "1"}
+   ],
+   "sides" :[
+      { "name": "French frie" , "src" : "image/sides/frie.png" , "price" : "1"},
+      { "name": "Chicken nugget" , "src" : "image/sides/nugget.png" , "price" : "2"},
+      { "name": "Shrimp Tempura" , "src" : "image/sides/shrimp.png" , "price" : "2"}
+   ],
+};

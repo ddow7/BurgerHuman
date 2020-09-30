@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="css/custom.css" rel="stylesheet" type="text/css">
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+	<title>Bootstrap Theme The Band</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+
+  <style>
+  #customName{
+	text-align:center;
+	color: black;
+  }
+  @font-face{
+		font-family : 'Righteous';
+		src : url(../fonts/Righteous-Regular.ttf) format('truetype');
+	}
+	@font-face{
+		font-family : 'Rajdhani';
+		src : url(fonts/Rajdhani-Regular.ttf) format('truetype');
+	}
+	@font-face{
+		font-family : 'LuckiestGuy';
+		src : url(fonts/LuckiestGuy-Regular.ttf) format('truetype');
+	}
+  body {
+    padding-top: 50px;
+	background-color:#fff4ca;
+  }
+  h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: #111;
+  }
+  .container {
+    padding: 80px 120px;
+  }
+  .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+  }
+  .carousel-caption h3 {
+    color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: #555;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .modal-header, h4, .close {
+    background-color: #333;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+  .nav-tabs li a {
+    color: #777;
+  }
+  #googleMap {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }  
+  .navbar {
+	 font-family: Righteous;
+    margin-bottom: 0;
+    background-color: #FBAA29;
+    border: 0;
+    font-size: 20px;
+    opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5;
+	position:relative;
+	
+  }
+  .navbar-nav li a:hover {
+    color: #fff;
+  }
+  .navbar-nav li.active a {
+    color: #fff;
+    background-color: #29292c;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555;
+  }
+  .dropdown-menu li a {
+    color: #000;
+  }
+  .dropdown-menu li a:hover {
+    background-color: #592c1c;
+  }
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  .form-control {
+    border-radius: 0;
+  }
+  textarea {
+    resize: none;
+  }
+     #topNavbar{
+  	background-color : #B0001E;
+  	font-size:0px;
+  }
+   #topNavbar p{
+   	padding:0;
+  	margin:-4px 4px 0px 4px;
+  	font-size:15px;
+  	color : white;
+  }
+  #topNavbar a{
+  	padding:0px 2px 0px 2px;
+  	font-size:17px;
+  	color : white;
+  	font-family : Rajdhani;
+  }
+   #myNavbar>ul>li>a{
+  	text-shadow: -3px 0 #000000, 0 3px #000000, 3px 0 #000000, 0 -3px #000000;
+  	color:#fff;
+  	padding:20px 15px 20px 15px;
+  	margin:0;
+  	font-size:24px;
+  }
+  #topNavbar ul {
+  	text-align: right;
+  	list-style:none;
+  	text-decoration: none;
+  }
+  #topNavbar ul li {
+			display: inline;
+	}
+  #topNavbar ul li a,p{
+			text-decoration: none;
+			display: inline;
+	}
+  #myCarousel{
+  	width:1200px;
+  	margin:0 auto;
+  }
+  #space{
+  	height:88px;
+  }
+  #logo{
+  	position: absolute;
+  	left:20px;
+  	top:-20px;
+  	margin-left:auto;
+  	margin-right:auto;
+  	left:0;
+  	right:0;
+  }
+  #footerContent{
+  	width:1200px;
+  	color:#848484;"
+  }
+  .dropdown-menu-content{
+  	font-size:18px;
+  }
+    @media screen and (max-width : 767px){
+  	#logo{
+  		width:130px;
+  		height:130px;
+  		left:0px;
+  		top:-20px;
+  		margin-left:0;
+  		margin-right:0;
+  	}
+  	#myNavbar>ul>li>a{
+  		text-shadow: -3px 0 #000000, 0 3px #000000, 3px 0 #000000, 0 -3px #000000;
+  		color:#fff;
+  		padding:15px 5px 15px 5px;
+  		margin:0;
+  	}
+  	#leftMenu{
+  		margin:10px 0px 10px 0px;
+  	}
+  	#rightMenu{
+  		margin:10px 0px 10px 0px;
+  	}
+  	#firstContent img{
+  		width:100%;
+  	}
+  	#footerContent{
+  	width:600px;
+  	color:#848484;"
+  	}
+  	#footerContent img{
+  		display:none;
+  	}
+  }
+  #menu_title{
+  	width:1200px;
+  }
+  #menu_title h1{
+  	font-size:40px;
+  	text-shadow: -3px 0 #000000, 0 3px #000000, 3px 0 #000000, 0 -3px #000000;
+  	color:#fff;
+  	font-family:Righteous;
+  }
+    #root{
+  	width:1200px;
+  	background-color:#fff085;
+  	position:relative;
+  	top:29px;
+  }
+  #custom_page{
+  	width:1200px;
+  	z-index:-1000;
+  }
+  #custom_page_left{
+  	width:450px;
+  	float:left;
+  	background-color: #FBAA29;
+  	z-index:-1000;
+  	color:white;
+  	font-family:Righteous;
+  	font-size:18px;
+  	border-radius:10px;
+  	text-shadow: -2px 0 #000000, 0 2px #000000, 2px 0 #000000, 0 -2px #000000;
+  }
+  #menu_title ul li{
+	  list-style:none;
+	  
+	  display:inline-block;
+  }
+    #subMenu a,p{
+  	font-family:Righteous;
+  	font-size:20px;
+  	text-decoration:none;
+  	padding-right:15px;
+  }
+  #subMenu a{
+  	color:grey;
+  }
+  #subMenu p{
+  	color:#3b3b3b;
+  }
+  </style>
+  <script type="text/javascript">
+  	var Fwidth=1920;
+	var cnt=0;
+
+        function div2Resize() {
+            var left = document.getElementById('leftMenu');
+            var right = document.getElementById('rightMenu');
+            if(window.innerWidth>767){
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px ';
+            	right.style.margin = 0 + 'px ' + ((Fwidth/5)-((Fwidth-window.innerWidth)/3)) +'px '+ 0 +'px '+ 0 +'px ';
+            }
+            else{
+            	left.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            	right.style.margin = 0 + 'px ' + 0 +'px '+ 0 +'px '+ 0 +'px ';
+            }
+        }
+    	var dragSrcEl = null;
+    	var ingredient_price = {
+    		topbun 		: 0.5,
+    		bottombun 	: 0.5,
+    		bun 		: 0.5,
+    		lettuce 	: 0.4,
+    		onion 		: 0.3,
+    		tomato 		: 0.5,
+    		chicken	 	: 1.2,
+    		patty 		: 1.2,
+    		mushroom	: 0.3,
+    		cheese 		: 0.5,
+    		hotsauce	: 0.2,
+    		mayo 		: 0.2
+    	};
+    	var price = 0.50;
+
+    	function addIngredient(t) {
+    		if (cnt<=21 && revar(t.toLowerCase(), window[t.toLowerCase()] + 1, {
+    			min : 0,
+    			max : 10
+    		})  ) {
+    			revar('price', price + ingredient_price[t.toLowerCase()], {
+    				min : 0
+    			});
+    			var burger = document.getElementById("burger");
+    			if (burger) {
+    				var i = document.createElement("div");
+    				i.className = t;
+    				i.title = t;
+    				i.draggable = true;
+    				i.setAttribute("id",t)
+    				var node = document.createElement("img");
+    				node.setAttribute("src","image/ingredients/"+t+".png");
+    				if(t=="bottomBun" || t=="topBun"){
+    					i.appendChild(node);
+    					burger.appendChild(i);
+    				}
+    				else{
+    					i.addEventListener("dragstart", handleDragStart, false);
+    					i.addEventListener("dragover", handleDragOver, false);
+    					i.addEventListener("dragenter", handleDragEnter, false);
+    					i.addEventListener("dragleave", handleDragLeave, false);
+    					i.addEventListener("dragend", handleDragEnd, false);
+    					i.addEventListener("drop", handleDrop, false);
+    					i.appendChild(node);
+    					var bun=document.getElementById("bottomBun");
+    					burger.insertBefore(i,bun);
+    				}
+    				moveburger();
+    			}
+				cnt++;
+    		}		
+    	}
+    	function removeIngredient(i) {
+    		if (revar(i.toLowerCase(), window[i.toLowerCase()] - 1, {
+    			min : 0,
+    			max : 10
+    		})) {
+    			revar('price', price - ingredient_price[i.toLowerCase()], {
+    				min : 0
+    			});
+    			var burger = document.getElementById("burger");
+    			if (burger) {
+    				var bch = burger.childNodes;
+    				var j = bch.length - 1;
+    				var deleted = false;
+    				while (bch[j] && !deleted) {
+    					if (bch[j].title == i) {
+    						deleted = true;
+    						burger.removeChild(bch[j]);
+    					}
+    					j--;
+    				}
+    				moveburger();
+    			}
+				cnt--;
+    		}
+    	}
+    	function moveburger(){
+    		var len=$("#burger div").length;
+    			$("#burger div").clearQueue();
+    			$("#burger div").stop();
+    			var i=0;
+    		$("#burger div").each(function(index, item){
+    			$(item).css("top","-150px");
+    			$(item).children("img").css("z-index",-index);
+    			var height=$(item).height();
+    			if(height==30){
+    				if(index-i>=0)
+    					$(item).delay((len-index)*150).animate({ top : (index-i)*40+(i)*(height-1*height/2)+"px" },500);
+    				else
+    					$(item).delay((len-index)*150).animate({ top : (i)*(height-1*height/2)+"px" },500);
+    				i++;
+    			}
+    			else if(height==90){
+    				$(item).delay((len-index)*150).animate({ top : (index-i)*40+(i)*(15)-(height-1*height/3)+"px" },500);
+    			}
+    			else{
+    				$(item).delay((len-index)*150).animate({ top : (index-i)*(height-1*height/3)+(i*15)+"px" },500);
+    			}
+    		});	
+    	}
+		
+    	function handleDragStart(e) {
+    		this.style.opacity = '0.4';
+    		dragSrcEl = this;
+    		e.dataTransfer.effectAllowed = 'move';
+    	}
+
+    	function handleDragOver(e) {
+    		if (e.preventDefault)
+    			e.preventDefault();
+
+    		e.dataTransfer.dropEffect = 'move';
+
+    		return false;
+    	}
+
+    	function handleDragEnter(e) {
+    		this.classList.add('over');
+    	}
+
+    	function handleDragLeave(e) {
+    		this.classList.remove('over');
+    	}
+    	function handleDrop(e) {
+    		if (e.stopPropagation){}
+    			e.stopPropagation();
+    		dragSrcEl.style.opacity = '1';
+    		if (dragSrcEl != this) {
+    			if (e.offsetY < (this.clientHeight / 2)) {
+    				this.parentNode.insertBefore(dragSrcEl, this);
+    			} else {
+    				if (this.nextSibling)
+    					this.parentNode.insertBefore(dragSrcEl, this.nextSibling);
+    				else
+    					this.parentNode.appendChild(dragSrcEl);
+    			}
+    		}
+    		handleDragEnd(e);
+
+    		return false;
+    	}
+
+    	function handleDragEnd(e) {
+    		var bo = document.querySelectorAll("#burger .over");
+    		for (var i = 0; i < bo.length; i++) {
+    			bo[i].classList.remove('over');
+    		}
+    		dragSrcEl.style.opacity = '1';
+    				moveburger();
+    	}
+    	function revar(variable, value, options) {
+    		if (typeof options.min !== undefined && options.min > value)
+    			return false;
+    		if (typeof options.max !== undefined && options.max < value)
+    			return false;
+
+    		value = Math.floor(value * 100) / 100;
+    		window[variable] = value;
+    		if (x = document.querySelector("span#var_" + variable))
+    			x.innerHTML = window[variable];
+    		return true;
+    	}	
+		var db;
+    	$(document).ready(function(){
+    		if(window.openDatabase) 
+    		{
+    			db = openDatabase("custom","1.0","custom database", 1024*1024);
+    		}
+    		db.transaction(
+                function(tx){
+				//tx.executeSql("drop table custom");
+                tx.executeSql("create table if not exists custom(num INTEGER PRIMARY KEY, name, user, customburger, price )");
+    			}
+    		);
+        });
+		var check=0;
+		var menu=[];
+		function showDetail(num){
+			sessionStorage.removeItem("customDetail")
+			menu=JSON.parse(sessionStorage.getItem("orderCustom"+num));
+			document.getElementById("customName").value=menu[0];
+			$(menu).each(function(index, item){
+				if(index>=2)
+					addIngredient(item);
+			});
+			check=1;
+		}
+		
+		function saveCustom(){
+			db.transaction(
+    			function(tx){
+					if(document.getElementById("customName").value==""){
+						alert("Write your burger name");
+					}
+					else if(document.getElementById("customName").value==menu[0]){
+						location.href="delivery.html";
+					}
+					else{
+					var user=sessionStorage.getItem("user"); 
+					if(user!=null){
+						var num=0;
+						var customSet=[];
+						var len=$("#burger div").length;
+						customSet[0]=document.getElementById("customName").value;
+						customSet[1]=price;
+						$("#burger div").each(function(index, item){
+						customSet[index+2]=item.getAttribute('id');
+						});
+						user=JSON.parse(user);
+						tx.executeSql("select max(num) as maxnum from custom", [], function(tx,rs){
+    						for(var i=0;i<rs.rows.length;i++){
+                                if(rs.rows.item(i)!=null){
+    								num=rs.rows.item(i).maxnum;
+    							}
+    						}
+                        });
+						tx.executeSql("insert into custom(name, user, customburger , price)"
+    					+" values(?,?,?,?)", [document.getElementById("customName").value,JSON.stringify(user),JSON.stringify(customSet),price]);
+						num+=1;
+						sessionStorage.setItem("customMaxnum",num);
+						sessionStorage.setItem("orderCustom"+num,JSON.stringify(customSet));
+						location.href="delivery.html";
+					}
+					else{
+						alert("Saving is only available to logged-in customers.");
+					}
+					}
+					
+    			}
+    		);
+		}
+		
+    	$( document ).ready(function() {
+			var at = document.getElementById('container').innerHTML;
+    		div2Resize();
+            window.addEventListener('resize', div2Resize);
+    		document.getElementById('container').innerHTML = at.replace(
+    				/\{@(.*)\}/g, function(a, b) {
+    					if (window[b] == undefined)
+    						window[b] = 0;
+    					return "<span id='var_" + b + "'>" + window[b] + "</span>";
+    				});
+			if((num=sessionStorage.getItem("customDetail"))==null){
+				addIngredient("topBun");
+				addIngredient("bottomBun");
+			}
+			else{
+				showDetail(num);
+			}
+    	});
+
+    </script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<nav class="navbar navbar-default navbar-fixed-top " >
+<a href="main.html"><img src="image/burger_logo.png" id="logo" width="150px" height="150px"></a>
+	<div id="topNavbar">
+		<ul>
+			<script>
+			function logOut(){
+				sessionStorage.removeItem("user");
+				}
+				var user=sessionStorage.getItem("user");
+				if(user==null){
+					document.write("<li><a href='SignIn.html'>Sign In</a></li>");
+				}
+				else{
+					document.write("<li onclick='logOut()'><a href='Menu_Custom.html'>LogOut</a></li>");
+				}
+			</script>
+        	<li><p> | </p></li>
+        	<li><a href="SignUp.html">Sign Up</a></li>
+        	<li><p> | </p></li>
+        	<li><a href="Customer_Opinion.html" style="margin-right:35px;">Customer Opinion</a></li>
+        </ul>
+	</div>
+  <div class="container-fluid ">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                     
+      </button>
+    </div>
+    <div class="collapse navbar-collapse " id="myNavbar">
+      <ul class="nav navbar-nav navbar-left" id="leftMenu">
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="menu.html" style="margin-right:100px;">MENU
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-menu-content" href="Menu_Burger.html">BURGER</a></li>
+            <li><a class="dropdown-menu-content" href="Menu_Beverages.html">BEVERAGES</a></li>
+			<li><a class="dropdown-menu-content" href="Menu_Sides.html">SIDES</a></li>
+			<li><a class="dropdown-menu-content" href="Menu_Custom.html">CUSTOM</a></li>
+          </ul>
+        </li>
+        <li><a href="locator.html">LOCATOR</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" id="rightMenu">
+        <li><a href="event.html" style="padding-left:-100px; margin-right:100px;">EVENT</a></li>
+		<li><a href="delivery.html">DELIVERY</a></li>
+      </ul>
+      </div>
+  </div>
+  <div id="root" class="container-fluid text-center">
+  <div class="text-left">
+  	<p>Home > CUSTOM > Custom</p>
+  </div>
+  </div>
+</nav>
+
+<div id="space" class="container-fluid text-center"></div>
+
+<div class="container-fluid" id="menu_title">
+	<h1>CUSTOM</h1>
+	<div class="text-right">
+	<ul id="subMenu">
+		<li class="">
+			<a href="Menu_Burger.html">BURGER</a>
+		</li>
+		<li class="">
+			<a href="Menu_Beverages.html">BEVERAGES</a>
+		</li>
+		<li class="">
+			<a href="Menu_Sides.html">SIDES</a>
+		</li>
+		<li class="">
+			<p>CUSTOM</p>
+		</li>
+	</ul>
+	</div>
+	<hr>
+</div>
+<div id="custom_page" class="container-fluid text-center">
+<div id="custom_page_left">
+<div class="container" id="container">
+		<div class="page view" id="order">
+			<div id="form">
+					<input type="text" value="" id="customName">
+				<div>
+					<label for="bun">Bun</label>
+					<button onclick="removeIngredient('bun')">-</button>
+					{@bun}
+					<button onclick="addIngredient('bun')">+</button>
+				</div>
+				<div>
+					<label for="lettuce">Lettuce</label>
+					<button onclick="removeIngredient('lettuce')">-</button>
+					{@lettuce}
+					<button onclick="addIngredient('lettuce')">+</button>
+				</div>
+				<div>
+					<label for="onion">Onion</label>
+					<button onclick="removeIngredient('onion')">-</button>
+					{@onion}
+					<button onclick="addIngredient('onion')">+</button>
+				</div>
+				<div>
+					<label for="tomato">Tomato</label>
+					<button onclick="removeIngredient('tomato')">-</button>
+					{@tomato}
+					<button onclick="addIngredient('tomato')">+</button>
+				</div>
+				<div>
+					<label for="mushroom">Mushroom</label>
+					<button onclick="removeIngredient('mushroom')">-</button>
+					{@mushroom}
+					<button onclick="addIngredient('mushroom')">+</button>
+				</div>
+				<div>
+					<label for="patty">patty</label>
+					<button onclick="removeIngredient('patty')">-</button>
+					{@patty}
+					<button onclick="addIngredient('patty')">+</button>
+				</div>
+				<div>
+					<label for="chicken">chicken</label>
+					<button onclick="removeIngredient('chicken')">-</button>
+					{@chicken}
+					<button onclick="addIngredient('chicken')">+</button>
+				</div>
+				<div>
+					<label for="hotSauce">HotSauce</label>
+					<button onclick="removeIngredient('hotSauce')">-</button>
+					{@hotsauce}
+					<button onclick="addIngredient('hotSauce')">+</button>
+				</div>
+				<div>
+					<label for="cheese">Cheese</label>
+					<button onclick="removeIngredient('cheese')">-</button>
+					{@cheese}
+					<button onclick="addIngredient('cheese')">+</button>
+				</div>
+				<hr>
+				Price: {@price}$
+				<div><img id="orderButton" onclick="saveCustom()" src="image/orderbt.jpg"></div>
+			<div><a href="Menu_Custom.html"><img src="image/cancelbt.jpg"></a></div>
+			</div>
+			</div>
+			<div id="burger" class="bunger"></div>
+		</div>
+
+		<div class="page" id="about"></div>
+	</div>
+</div>
+<!-- Footer -->
+<footer>
+	<div class="text-center">
+  		<a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    	<span class="glyphicon glyphicon-chevron-up"></span>
+  		</a>
+  	</div>
+  	<div id="footerContent" class="container-fluid">
+  	<div class="text-left" style="display:inline; position:absolute;">
+  		<img src="image/footerLogo.png" class="img_locator">
+  	</div>
+  	<div class="text-right">
+  		<h2>BURGER HUMAN</h2>
+  		<p>충북대학교 소프트웨어학과 전준호, 박상혁, 류한민</p><br>
+  		<p>(28644) 충북 청주시 서원구 충대로 1, 충북대학교 TEL 010-2537-7605(박상혁)</p><br>
+  		<a href="http://www.chungbuk.ac.kr/" data-toggle="tooltip" title="Visit CBNU">http://www.chungbuk.ac.kr/</a>
+  	</div>
+	</div>
+</div>
+</footer>
+
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+</body>
+</html>
